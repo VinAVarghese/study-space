@@ -1,14 +1,17 @@
 let maxSubarraySum = (arr, num) => {
-    let firstPos = 0;
-    let lastPos = num-1;
-    let maxSum = -Infinity;
-    while (lastPos < arr.length){
-        let sum = arr[firstPos] + arr[lastPos];
-        sum > maxSum ? maxSum = sum: null;
-        firstPos++;
-        lastPos++;
+    let maxSum = 0;
+    let tempSum = 0;
+    if (arr.length < num) return null;
+    for (let i=0; i < num; i++){
+        maxSum += arr[i];
     }
-    return maxSum
+    tempSum = maxSum;
+    for (let i = num; i < arr.length; i++){
+        tempSum = tempSum - arr[i -num] + arr[i];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    console.log(maxSum);
 }
 
-maxSubarraySum([1,2,45,3,4,2,66,4,5,4], 2)
+maxSubarraySum([1,2,45,3,4,2,66,4,5,4], 2) // 70
+
