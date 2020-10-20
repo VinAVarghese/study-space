@@ -15,7 +15,7 @@ let maxSubarraySum = (arr, num) => {
 }
 maxSubarraySum([1,2,45,3,4,2,66,4,5,4], 2) // 70
 
-// //////////
+//-------------------------//
 
 // Return the minimal length of a contiguous subarray of which the sum is greater than or equal to the integer passed to the function.
 let minSubArrayLen = (arr, sum) => {
@@ -46,8 +46,9 @@ let minSubArrayLen = (arr, sum) => {
 }
 minSubArrayLen([1,2,45,3,4,2,66,4,5,4], 67) // 2 -> because [2,66] is the smallet subarray that is greater that 67
 
-// //////////
+//-------------------------//
 
+// Return the length of the longest substring with all distinct characters.
 let findLongestSubstring = (str) => {
     let longest = 0;
     let seen = {};
