@@ -34,7 +34,6 @@ class SinglyLinkedList {
         }
 
         this.length++;
-        // console.log(this); 
     }
     pop(){
         if(!this.head) return undefined;
@@ -50,9 +49,7 @@ class SinglyLinkedList {
         this.tail = newTail
         console.log("Popped: ", this.tail.next);
         this.tail.next = null;
-        console.log("New Tail: ", this.tail);
         this.length--;
-        console.log("Length: ", this.length);
         if(this.length === 0){
             this.head = null;
             this.tail = null;
@@ -83,10 +80,11 @@ class SinglyLinkedList {
     }
 }
 var list = new SinglyLinkedList
-list.push("Hello!")
-list.push("How are you?")
-list.push("Goodbye")
+list.push("First!")
+list.push("Second?")
+list.push("END")
+// list.push("NEW END")
 // list.pop()
 // list.shift()
-list.unshift(13)
+// list.unshift(13)
 console.log("The list now: ", list);
