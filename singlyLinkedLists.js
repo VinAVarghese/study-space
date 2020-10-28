@@ -37,7 +37,7 @@ class SinglyLinkedList {
         // console.log(this); 
     }
     pop(){
-        if(!this.head) return undefined
+        if(!this.head) return undefined;
         var current = this.head;
         var newTail = current;
         console.log("Length: ", this.length);
@@ -53,11 +53,40 @@ class SinglyLinkedList {
         console.log("New Tail: ", this.tail);
         this.length--;
         console.log("Length: ", this.length);
+        if(this.length === 0){
+            this.head = null;
+            this.tail = null;
+        }
         return current
+    }
+    shift(){
+        if(!this.head) return undefined;
+        var shiftedThisHead = this.head;
+        this.head = shiftedThisHead.next;
+        this.length--;
+        console.log("Shifted off: ",shiftedThisHead);
+        console.log("New Head: ",this.head);
+        if(this.length === 0){
+            this.tail = null;
+        }
+    }
+    unshift(val){
+        let newHead = new Node(val)
+        if(!this.head) {
+            this.head = newHead;
+            this.tail = this.head;
+        } else{
+            newHead.next = this.head;
+            this.head = newHead;
+        }
+        this.length++;
     }
 }
 var list = new SinglyLinkedList
 list.push("Hello!")
 list.push("How are you?")
 list.push("Goodbye")
-list.pop()
+// list.pop()
+// list.shift()
+list.unshift(13)
+console.log("The list now: ", list);
