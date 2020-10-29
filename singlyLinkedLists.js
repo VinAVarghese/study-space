@@ -78,6 +78,31 @@ class SinglyLinkedList {
         }
         this.length++;
     }
+    get(i){
+        if(i < 0 || i >= this.length) return null;
+        let current = this.head;
+        let counter = 0; 
+        while(i !== counter){
+            current = current.next
+            counter++;
+        }
+        console.log("Get item: ", current);
+        return current
+    }
+    set(i, newVal){
+        let foundNode = this.get(i)
+        if(foundNode){
+            foundNode.val = newVal;
+            console.log(foundNode);
+            return true
+        } else {
+            console.log("No node at Index",false);
+            return false
+        }
+    }
+    insert(){
+
+    }
 }
 var list = new SinglyLinkedList
 list.push("First!")
@@ -87,4 +112,7 @@ list.push("END")
 // list.pop()
 // list.shift()
 // list.unshift(13)
+// list.get(2)
+// list.set(2, "Newest set item")
+list.insert(1, "New inserted node")
 console.log("The list now: ", list);
