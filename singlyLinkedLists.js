@@ -86,7 +86,7 @@ class SinglyLinkedList {
             current = current.next
             counter++;
         }
-        console.log("Get item: ", current);
+        // console.log("Get item: ", current);
         return current
     }
     set(i, newVal){
@@ -100,8 +100,21 @@ class SinglyLinkedList {
             return false
         }
     }
-    insert(){
-
+    insert(i, val){
+        if(i < 0 || i > this.length) {
+            return false
+        } else if(i === this.length) {
+            return !!this.push(val);
+        } else if(i === 0){
+            return !!this.unshift(val);
+        } else {
+            let newNode = new Node(val);
+            var previous = this.get(i - 1);
+            newNode.next = previous.next;
+            previous.next = newNode;
+            this.length++;
+            return true
+        }
     }
 }
 var list = new SinglyLinkedList
@@ -114,5 +127,5 @@ list.push("END")
 // list.unshift(13)
 // list.get(2)
 // list.set(2, "Newest set item")
-list.insert(1, "New inserted node")
+list.insert(1, "New NODE Inserted")
 console.log("The list now: ", list);
