@@ -128,6 +128,29 @@ class SinglyLinkedList {
         console.log("prevNode:", prev); 
         return removed;
     }
+    reverse(){
+        let current = this.head;
+        this.head = this.tail;
+        this.tail = current;
+        let next;
+        let prev = null;
+        for (let i = 0; i < this.length; i++) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return next;
+    }
+    print(){
+        var arr = [];
+        var current = this.head;
+        while (current){
+            arr.push(current.val);
+            current = current.next;
+        }
+        console.log("The list:", arr);
+    }
 }
 var list = new SinglyLinkedList
 list.push("First!")
@@ -141,5 +164,6 @@ list.push("END")
 // list.get(2)
 // list.set(2, "Newest set item")
 // list.insert(1, "New NODE Inserted")
-list.remove(2)
-console.log("The list now: ", list);
+// list.remove(2)
+// list.reverse()
+list.print()
