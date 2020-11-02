@@ -116,16 +116,30 @@ class SinglyLinkedList {
             return true
         }
     }
+    remove(i){
+        if(i < 0 || i > this.length) return undefined;
+        if(i === this.length) return this.pop();
+        if(i === 0) return this.shift();
+        let removed = this.get(i);
+        let prev = this.get(i-1);
+        prev.next = removed.next;
+        this.length--;
+        console.log("Removed:", removed); 
+        console.log("prevNode:", prev); 
+        return removed;
+    }
 }
 var list = new SinglyLinkedList
 list.push("First!")
 list.push("Second?")
+list.push(3)
+list.push(false)
 list.push("END")
-// list.push("NEW END")
 // list.pop()
 // list.shift()
 // list.unshift(13)
 // list.get(2)
 // list.set(2, "Newest set item")
-list.insert(1, "New NODE Inserted")
+// list.insert(1, "New NODE Inserted")
+list.remove(2)
 console.log("The list now: ", list);
