@@ -34,7 +34,7 @@ class DoublyLinkedList {
             this.tail = newNode;
         }
         this.length++;
-        return
+        return this
     }
 
     pop(){
@@ -50,7 +50,7 @@ class DoublyLinkedList {
         }
         this.length--;
         console.log("Poppped:", popped);
-        return
+        return this
     }
 
     shift(){
@@ -66,7 +66,7 @@ class DoublyLinkedList {
         }
         this.length--;
         console.log("shifted:", shifted);
-        return
+        return this
     }
 
     unshift(val){
@@ -80,7 +80,7 @@ class DoublyLinkedList {
             this.head = newNode;
         }
         this.length++;
-        return 
+        return this
     }
 
     get(i){
