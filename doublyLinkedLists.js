@@ -1,3 +1,13 @@
+// DOUBLY LINKED LIST NOTES : 
+// Insertion - constant time O(1)
+// Removal - constant time O(1) (always constant unlike singly linked list)
+// Searching - O(n) time (slightly optimized because it might start at the end - divide and conqure)
+// Access - O(n) 
+
+// - Working backwards/reversed manor, DLL is best
+// - Better than SLL for finding nodes
+// - Takes more memory than SLL
+
 class Node {
     constructor(val){
         this.val = val;
