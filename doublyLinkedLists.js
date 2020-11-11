@@ -161,6 +161,16 @@ class DoublyLinkedList {
         }
         return this;
     }
+
+    print(){
+        var arr = [];
+        var current = this.head;
+        while (current){
+            arr.push(current.val);
+            current = current.next;
+        }
+        return arr
+    }
 }
 
 let dList = new DoublyLinkedList();
@@ -177,4 +187,4 @@ dList.push("END");
 // dList.insert(3, "Inserted This");
 // dList.remove(3);
 dList.reverse();
-console.log("Final list:", dList);
+console.log("Final list:", dList.print());
