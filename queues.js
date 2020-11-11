@@ -2,6 +2,9 @@
 // What is a queue? 
 // - A Data structure where you add and remove
 // - FIFO data structure: First In First Out
+// BIG O: 
+// - insertion & removal = constant time O(1)
+// - searching & access = O(N)
 
 
 // USING AN ARRAY TO IMPLEMENT A QUEUE
