@@ -3,6 +3,7 @@
     // Big O:
         // If nearly sorted array O(n)
         // If completely random array O(n^2)
+        // Space complexitiy = O(1)
 
 const bubbleSort = (arr) => {
     let noSwaps;

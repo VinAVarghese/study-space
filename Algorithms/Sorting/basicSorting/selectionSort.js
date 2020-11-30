@@ -3,6 +3,7 @@
     // - Finds the minimum and brings it to the beginning
     // Big O:
         // - O(n^2)
+        // Space complexitiy = O(1)
 
 
 const selectionSort = (arr) => {
