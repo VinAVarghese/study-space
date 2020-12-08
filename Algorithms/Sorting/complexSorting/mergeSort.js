@@ -1,7 +1,8 @@
 // Merge Sort:
     // - 
     // Big O:
-        // 
+        // Time: O(n log n)
+        // Space: O(n)
 
 // merge Helper Function
 var merge = (arr1, arr2) => {
@@ -41,4 +42,5 @@ var mergeSort = (arr) => {
     var answer = merge(left,right);
     return answer
 }
+
 mergeSort([10,24,76,73])
