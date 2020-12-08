@@ -3,7 +3,7 @@
     // Big O:
         // 
 
-// merge Function
+// merge Helper Function
 var merge = (arr1, arr2) => {
     var results = [];
     var i = 0;
