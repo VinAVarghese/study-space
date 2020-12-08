@@ -2,7 +2,12 @@
     // - Like merge sort, exploits the fact that arrays of 0 & 1 elements are always sorted
     // - Works by selecting one element (called the 'pivot') and finding the index where the pivot should end up in the sorted array
     // Big O:
-        // 
+        // Time:  
+            // - Best and Avg case = O(n log n)
+            // - Worst case = O(n^2)
+                // - Worst case happens with a sorted array and the first or last index being used as the pivot 
+                // - Choosing a random pivot can statistically avoid this speed
+        // Space: O(log n)
 
 // pivot Helper Function
 const pivot = (arr, start=0, end=arr.length-1) => {
