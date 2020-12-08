@@ -1,4 +1,4 @@
-// Merge Sort:
+// Quick Sort:
     // - Like merge sort, exploits the fact that arrays of 0 & 1 elements are always sorted
     // - Works by selecting one element (called the 'pivot') and finding the index where the pivot should end up in the sorted array
     // Big O:
