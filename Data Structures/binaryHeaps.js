@@ -49,6 +49,45 @@ class MaxBinaryHeap {
         }
         return this.values;
     }
+
+    extractMax(){ // (remove)
+        const max = this.values[0];
+        const end = this.values.pop();
+        if(this.values.length > 0){
+            this.values[0] = end;
+            this.sinkDown();
+        }
+        return console.log('Extracted Max:', max); 
+    }
+
+    sinkDown(){
+        let idx = 0;
+        const length = this.values.length;
+        const element = this.values[0];
+        while(true){
+            let leftChildIdx = 1 * idx + 1; // - 2n + 1 = left child index
+            let rightChildIdx = 1 * idx + 2; // - 2n + 2 = right child index
+            let leftChild, rightChild;
+            let swap = null;
+            if(leftChildIdx < length){
+                leftChild = this.values[leftChildIdx];
+                if(leftChild > element){
+                    swap = leftChildIdx;
+                }
+            }            
+            if(rightChildIdx < length){
+                rightChild = this.values[rightChildIdx];
+                if(swap === null && rightChild > element || swap !== null && rightChild > leftChild){
+                    swap = rightChildIdx;
+                }
+            }            
+
+            if(swap === null) break;
+            this.values[idx] = this.values[swap];
+            this.values[swap] = element;
+            idx = swap;
+        }
+    }
 }
 
 let maxBH = new MaxBinaryHeap();
@@ -58,4 +97,6 @@ maxBH.insert(33);
 maxBH.insert(18);
 maxBH.insert(27);
 maxBH.insert(12);
+maxBH.insert(55);
+maxBH.extractMax();
 console.log("MaxBinaryHeap", maxBH.values);
