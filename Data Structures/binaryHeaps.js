@@ -26,26 +26,30 @@
     // - When looking for parent of a child (n = index)
         // - (n-1)/2 = parent index (floor any decimal)
 
+// BIG O: 
+    // - Insertion & Removal: O(log n)
+    // - Search: O(n)
+
 class MaxBinaryHeap {
     constructor () {
         this.values = [];
     }
 
-    insert(val){
-        this.values.push(val);
+    insert(element){
+        this.values.push(element);
         this.bubbleUp();
     }
 
     bubbleUp(){
         let idx = this.values.length - 1;
-        let parentIdx = Math.floor((idx - 1) / 2);
-        while (this.values[parentIdx] < this.values[idx]){
+        const element = this.values[idx];
+        while (idx > 0){
+            let parentIdx = Math.floor((idx - 1) / 2);
             let parent = this.values[parentIdx];
-            let child = this.values[idx];
-            this.values[parentIdx] = child;
+            if(element <= parent) break;
+            this.values[parentIdx] = element;
             this.values[idx] = parent;
             idx = parentIdx;
-            parentIdx = Math.floor((idx - 1) / 2);
         }
         return this.values;
     }
@@ -69,15 +73,20 @@ class MaxBinaryHeap {
             let rightChildIdx = 1 * idx + 2; // - 2n + 2 = right child index
             let leftChild, rightChild;
             let swap = null;
+
             if(leftChildIdx < length){
                 leftChild = this.values[leftChildIdx];
                 if(leftChild > element){
                     swap = leftChildIdx;
                 }
-            }            
+            }     
+
             if(rightChildIdx < length){
                 rightChild = this.values[rightChildIdx];
-                if(swap === null && rightChild > element || swap !== null && rightChild > leftChild){
+                if(
+                    (swap === null && rightChild > element) || 
+                    (swap !== null && rightChild > leftChild)
+                ){
                     swap = rightChildIdx;
                 }
             }            
