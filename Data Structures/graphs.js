@@ -47,8 +47,12 @@ class Graph {
         this.adjacencyList[vert2] = this.adjacencyList[vert2].filter(v => v !== vert1);
     }
 
-    removeVertex(){
-        
+    removeVertex(vertex){
+        while(this.adjacencyList[vertex].length){
+            const adjacentVertex = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex,adjacentVertex);
+        }
+        delete this.adjacencyList[vertex];
     }
 }
 
@@ -56,7 +60,13 @@ let graph = new Graph;
 graph.addVertex("Tokyo");
 graph.addVertex("Aspen");
 graph.addVertex("Dallas");
+graph.addVertex("HongKong");
+graph.addVertex("LosAngeles");
 graph.addEdge("Tokyo", "Dallas");
+graph.addEdge("Tokyo", "HongKong");
+graph.addEdge("Dallas", "HongKong");
+graph.addEdge("LosAngeles", "HongKong");
 graph.addEdge("Dallas", "Aspen");
 // graph.removeEdge("Tokyo", "Dallas");
+// graph.removeVertex("HongKong");
 console.log(graph)
