@@ -4,6 +4,8 @@
 // Input: l1 = [1,2,4], l2 = [1,3,4]
 // Output: [1,1,2,3,4,4]
 
+// note - l1 and l2 are nodes
+
 var mergeTwoLists = function(l1, l2) {
     let prehead = new ListNode(-1);
     let prev = prehead;
