@@ -55,7 +55,7 @@ class Graph {
         delete this.adjacencyList[vertex];
     }
 
-    // Graph Traversal Methods
+    // Graph Traversal Methods - Depth-First
     dfsRecursive(start){
         let results = [];
         let visited = {};
@@ -76,7 +76,6 @@ class Graph {
 
         return console.log("dfsRecursive Starting Node:(", start, ") ||| Traversal Results:", results);
     }
-
     dfsIterative(start){
         let stack = [start];
         let results = [];
@@ -99,6 +98,8 @@ class Graph {
 
         return console.log("dfsIterative Starting Node:(", start, ") ||| Traversal Results:", results);
     }
+
+    // Graph Traversal Methods - Breadth-First
 }
 
 let graph = new Graph;
@@ -125,5 +126,10 @@ console.log(graph)
 // GRAPH TRAVERSAL:
     // Depth-First Search/Traversal
         // Follows one branch all the way down and then the same to it's neighbors
-graph.dfsRecursive("Dallas");
-graph.dfsIterative("Dallas");
+    // Example Executions
+// graph.dfsRecursive("Dallas");
+// graph.dfsIterative("Dallas");
+
+    // Breadth-First Search/Traversal
+        // 
+    // Example Executions
