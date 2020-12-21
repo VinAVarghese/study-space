@@ -54,6 +54,27 @@ class Graph {
         }
         delete this.adjacencyList[vertex];
     }
+
+    // Graph Traversal Methods
+    dfsRecursive(start){
+        let results = [];
+        let visited = {};
+        const adjacencyList = this.adjacencyList;
+        DFS(start);
+
+        function DFS(vertex){
+            if (!vertex) return null;
+            results.push(vertex);
+            visited[vertex] = true;
+            adjacencyList[vertex].forEach(neighbor => {
+                if(visited[neighbor] !== true){
+                    return DFS(neighbor);
+                }
+            })
+        }
+
+        return console.log("DFS Starting Node:(", start, ") ||| Traversal Results:", results);
+    }
 }
 
 let graph = new Graph;
@@ -62,6 +83,10 @@ graph.addVertex("Aspen");
 graph.addVertex("Dallas");
 graph.addVertex("HongKong");
 graph.addVertex("LosAngeles");
+graph.addVertex("Amsterdam");
+graph.addVertex("Oslo");
+graph.addEdge("Tokyo", "Amsterdam");
+graph.addEdge("Amsterdam", "Oslo");
 graph.addEdge("Tokyo", "Dallas");
 graph.addEdge("Tokyo", "HongKong");
 graph.addEdge("Dallas", "HongKong");
@@ -70,3 +95,11 @@ graph.addEdge("Dallas", "Aspen");
 // graph.removeEdge("Tokyo", "Dallas");
 // graph.removeVertex("HongKong");
 console.log(graph)
+
+
+
+// GRAPH TRAVERSAL:
+    // Depth-First Search/Traversal
+        // Follows one branch down and it's neighbors
+
+graph.dfsRecursive("Dallas");
