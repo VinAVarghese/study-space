@@ -60,6 +60,7 @@ class Graph {
         let results = [];
         let visited = {};
         const adjacencyList = this.adjacencyList;
+
         DFS(start);
 
         function DFS(vertex){
@@ -67,13 +68,36 @@ class Graph {
             results.push(vertex);
             visited[vertex] = true;
             adjacencyList[vertex].forEach(neighbor => {
-                if(visited[neighbor] !== true){
+                if(!visited[neighbor]){
                     return DFS(neighbor);
                 }
             })
         }
 
-        return console.log("DFS Starting Node:(", start, ") ||| Traversal Results:", results);
+        return console.log("dfsRecursive Starting Node:(", start, ") ||| Traversal Results:", results);
+    }
+
+    dfsIterative(start){
+        let stack = [start];
+        let results = [];
+        let visited = {};
+        let currentVertex;
+
+        visited[start] = true;
+
+        while (stack.length) {
+            currentVertex = stack.pop();
+            results.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if(!visited[neighbor]){
+                    visited[neighbor] = true;
+                    stack.push(neighbor)
+                }
+            })
+        }
+
+        return console.log("dfsIterative Starting Node:(", start, ") ||| Traversal Results:", results);
     }
 }
 
@@ -100,6 +124,6 @@ console.log(graph)
 
 // GRAPH TRAVERSAL:
     // Depth-First Search/Traversal
-        // Follows one branch down and it's neighbors
-
+        // Follows one branch all the way down and then the same to it's neighbors
 graph.dfsRecursive("Dallas");
+graph.dfsIterative("Dallas");
