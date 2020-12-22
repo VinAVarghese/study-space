@@ -56,27 +56,27 @@ class Graph {
     }
 
     // Graph Traversal Methods - Depth-First
-    dfsRecursive(start){
+    dfRecursive(start){
         let results = [];
         let visited = {};
         const adjacencyList = this.adjacencyList;
 
-        DFS(start);
+        DF(start);
 
-        function DFS(vertex){
+        function DF(vertex){
             if (!vertex) return null;
             results.push(vertex);
             visited[vertex] = true;
             adjacencyList[vertex].forEach(neighbor => {
                 if(!visited[neighbor]){
-                    return DFS(neighbor);
+                    return DF(neighbor);
                 }
             })
         }
 
-        return console.log("dfsRecursive Starting Node:(", start, ") ||| Traversal Results:", results);
+        return console.log("dfRecursive Starting Node:(", start, ") ||| Traversal Results:", results);
     }
-    dfsIterative(start){
+    dfIterative(start){
         let stack = [start];
         let results = [];
         let visited = {};
@@ -96,10 +96,30 @@ class Graph {
             })
         }
 
-        return console.log("dfsIterative Starting Node:(", start, ") ||| Traversal Results:", results);
+        return console.log("dfIterative Starting Node:(", start, ") ||| Traversal Results:", results);
     }
 
     // Graph Traversal Methods - Breadth-First
+    bf(start){
+        let queue = [start];
+        let results = [];
+        let visited = {};
+        visited[start] = true;
+        let current;
+
+        while(queue.length){
+            current = queue.shift()
+            results.push(current)
+            this.adjacencyList[current].forEach(neighbor => {
+                if(!visited[neighbor]){
+                    visited[neighbor] = true;
+                    queue.push(neighbor)
+                }
+            });
+        }
+        
+        return console.log("BF Starting Node:(", start, ") ||| Traversal Results:", results);
+    }
 }
 
 let graph = new Graph;
@@ -123,13 +143,21 @@ console.log(graph)
 
 
 
-// GRAPH TRAVERSAL:
-    // Depth-First Search/Traversal
-        // Follows one branch all the way down and then the same to it's neighbors
-    // Example Executions
-// graph.dfsRecursive("Dallas");
-// graph.dfsIterative("Dallas");
 
-    // Breadth-First Search/Traversal
-        // 
-    // Example Executions
+
+// GRAPH TRAVERSAL:
+
+// Depth-First Search/Traversal
+        // Follows one branch all the way down and then the same to it's neighbors
+        // "Height" is considered the jumps from the starting node (i.e. how many levels of height down or away from root = height)
+        
+        // Example Executions
+    // graph.dfRecursive("Dallas");
+    // graph.dfIterative("Dallas");
+
+// Breadth-First Search/Traversal
+        // "Height" is considered the jumps from the starting node (i.e. how many levels of height down or away from root = height)
+        // BFS does the whole level first before going down another level
+    
+        // Example Executions
+    graph.bf("Dallas");
