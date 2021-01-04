@@ -2,8 +2,8 @@
     // Weighted graph traversal algo that uses priority queue
     // Finds shortest path to between two vertices on a graph
 
+    
 // Weighted Graph Implementation
-
 class WeightedGraph {
     constructor(){
         this.adjacencyList = {}
