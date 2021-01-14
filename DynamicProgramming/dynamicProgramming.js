@@ -7,3 +7,11 @@
     // Indicator that Dynamic Programming can be used? 2/2: Optimal Substructure
 
 // Optimal Substructure - A problem where an optimal solution can be constructed from optimal solutions of its subproblems
+
+// Subproblems Example
+const recursiveFib = (n) => {
+    if(n <= 2) return 1;
+    return recursiveFib(n-1) + recursiveFib(n-2);   
+}
+console.log(recursiveFib(4));
+
