@@ -27,10 +27,10 @@ console.log('isPalindrome (tacocat): ', isPalindrome('tacocat')); // true
 // Alternative Solution
 function isPalindromeAlt(str){
     if(str.length === 1) return true;
-    if(str.length === 2) return str[0] === str[1];
+    if(str.length === 2) return str[0] === str[1]; // will return true of false depending on truthyness of this statement
     if(str[0] === str.slice(-1)) return isPalindromeAlt(str.slice(1,-1))
     return false;
 }
 
 console.log('isPalindromeAlt (awesome): ', isPalindromeAlt('awesome')); // false
-console.log('isPalindromeAlt (tacocat): ', isPalindromeAlt('tacocat')); // true
+console.log('isPalindromeAlt (tacocat): ', isPalindromeAlt('tacoacat')); // true
