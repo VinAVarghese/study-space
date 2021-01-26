@@ -8,10 +8,10 @@
 
 const isOdd = val => val % 2 !== 0;
 
-function someRecursive(arr, func){
+function someRecursive(arr, callback){
     if (arr.length < 1) return false;
-    if(func(arr[0])) return true;
-    return someRecursive(arr.slice(1), func);
+    if(callback(arr[0])) return true;
+    return someRecursive(arr.slice(1), callback);
 }
 
 console.log("someRecursive: ", someRecursive([1,2,3,4], isOdd)); // true
