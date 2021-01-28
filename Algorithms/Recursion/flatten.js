@@ -1,11 +1,13 @@
-function flatten(arr,ans=[]){
-    if(!Array.isArray(arr[0])){
-        ans.push(arr[0])
-    } else {
-        return flatten(arr[0], ans);
-    }
-    if(arr.length < 1) return ans
-    return flatten(arr.splice(1), ans);
+  function flatten(oldArr){
+    var newArr = []
+        for(var i = 0; i < oldArr.length; i++){
+          if(Array.isArray(oldArr[i])){
+                newArr = newArr.concat(flatten(oldArr[i]))
+          } else {
+                newArr.push(oldArr[i])
+          }
+    } 
+    return newArr;
   }
   
   console.log('flatten: ', flatten([1, 2, 3, [4, 5] ]) ); // [1, 2, 3, 4, 5]
